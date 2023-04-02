@@ -26,7 +26,7 @@
 		"apollo-server-express": "^3.12.0",
 		"bcrypt": "^5.1.0",
 		"carry-core": "^1.0.5",
-		"carry-db-driver": "^1.0.9",
+		"carry-db-driver": "^1.1.0",
 		"class-validator": "^0.14.0",
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
