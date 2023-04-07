@@ -1,3 +1,5 @@
+import { Application } from 'express';
+import apiConfigRoutes from './routes/apiConfig.routes';
 export const ROUTES = [
 	{
 		url: '/free',
@@ -28,3 +30,7 @@ export const ROUTES = [
 		},
 	},
 ];
+
+export async function registerRoutes(app: Application) {
+	app.use('/api-config', apiConfigRoutes);
+}

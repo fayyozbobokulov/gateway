@@ -1,6 +1,6 @@
 import morgan from 'morgan';
-import { Express } from 'express';
+import { Application } from 'express';
 
-export const setupLogging = (app: Express) => {
+export const setupLogging = (app: Application) => {
 	app.use(morgan('combined'));
 };
