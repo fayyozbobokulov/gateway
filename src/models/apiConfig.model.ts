@@ -4,10 +4,6 @@ export interface IApiConfig extends Document {
 	url: string;
 	auth: boolean;
 	additional: object;
-	rateLimit?: {
-		windowMs: number;
-		max: number;
-	};
 	proxy: {
 		target: string;
 		changeOrigin: boolean;
@@ -16,22 +12,17 @@ export interface IApiConfig extends Document {
 		};
 	};
 }
-const RateLimitSchema: Schema = new Schema({
-	windowMs: { type: Number, required: true },
-	max: { type: Number, required: true },
-});
 
 const ProxySchema: Schema = new Schema({
-	target: { type: String, required: true },
-	changeOrigin: { type: Boolean, required: true },
-	pathRewrite: { type: Map, of: String, required: true },
+	target: { type: String, required: false },
+	changeOrigin: { type: Boolean, required: false },
+	pathRewrite: { type: Map, of: String, required: false },
 });
 
 const ApiConfigSchema: Schema = new Schema({
 	url: { type: String, required: true, unique: true },
 	auth: { type: Boolean, required: true },
 	additional: { type: Object, required: false },
-	rateLimit: { type: RateLimitSchema, required: false },
 	proxy: { type: ProxySchema, required: true },
 });
 

@@ -18,11 +18,9 @@ const apiConfigValidationSchema = Joi.object({
 		max: Joi.number().integer().min(0).required(),
 	}),
 	proxy: Joi.object({
-		target: Joi.string().uri().required(),
-		changeOrigin: Joi.boolean().required(),
-		pathRewrite: Joi.object()
-			.pattern(Joi.string(), Joi.string())
-			.required(),
+		target: Joi.string().uri(),
+		changeOrigin: Joi.boolean(),
+		pathRewrite: Joi.object(),
 	}),
 });
 const validateApiConfig = (req: Request, res: Response, next: NextFunction) => {
